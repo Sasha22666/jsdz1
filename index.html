@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Анкета</title>
+</head>
+
+<body>
+    <style>
+    </style>
+    <script>
+
+        var surName = prompt('Введите фамилию:'); //спрашиваем фамилию
+        while (true) //проверка на корректность
+        {
+        var surName_pr = parseInt(surName);
+        if (isNaN(surName_pr)  && surName !== null && surName.trim())  {
+            break;
+        }
+        else {
+            alert("Введите, пожалуйста, фамилию корректно!");
+            var surName = prompt('Введите фамилию:');
+        }
+        }
+        
+    
+        var privName = prompt('Введите имя:'); //спрашиваем имя
+        while (true) //проверка на корректность
+        {
+        var privName_pr = parseInt(privName);
+        if (isNaN(privName_pr)  && privName!==null && privName.trim())  {
+            break;
+        }
+        else {
+            alert("Введите, пожалуйста, имя корректно!");
+            var privName= prompt('Введите имя:');
+        }
+        }
+        
+        var fatherName = prompt('Введите отчество:'); //спрашиваем отчество
+        while (true) //проверка на корректность
+        {
+        var fatherName_pr = parseInt(fatherName);
+        if (isNaN(fatherName_pr) && fatherName !== null && fatherName.trim() )  {
+            break;
+        }
+        else {
+            alert("Введите, пожалуйста, отчество корректно!");
+            var fatherName = prompt('Введите отчество:');
+        }
+        }
+
+        var ageStr = prompt('Введите ваш возраст:'); //спрашиваем возраст
+        while (true) //проверка на корректность введенных данных
+        {
+            var age = parseInt(ageStr);
+            if (!isNaN(age))
+                break; // введено корректное число - выходим из цикла
+            ageStr = prompt('Введите ваш возраст корректно (арабскими цифрами):');
+        }
+
+        var gender = confirm('Если ваш пол мужской - нажмите OK, если женский - Отмена');  //уточняем пол
+        if (gender == true)
+            var gender_str = 'мужской'
+        else
+            gender_str = 'женский';
+
+        if (gender_str == 'мужской') //проверяем или наступила пенсия
+        {
+            if (age > 60)
+                var pens = 'да';
+            else
+                var pens = 'нет';
+        }
+        else {
+            if (age > 55)
+                var pens = 'да';
+            else
+                var pens = 'нет';
+        }
+        alert //выводим анкету на экран
+            ("ваше ФИО: " + surName + ' ' + privName + ' ' + fatherName + '\nваш возраст в годах: ' + age + '\nваш возраст в днях: ' + age * 365 + '\nчерез пять лет вам будет: ' + (age + 5) +
+                '\nваш пол: ' + gender_str + '\nвы на пенсии: ' + pens);
+
+    </script>
+
+</body>
+
+</html>
